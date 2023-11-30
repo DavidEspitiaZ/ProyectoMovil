@@ -87,7 +87,7 @@ const ProductList = ({ navigation }) => {
               <View style={styles.modalContent}>
                 {selectedProduct && (
                   <>
-                <Image source={{ uri: selectedProduct.image }} style={styles.productImageModal} />
+                <Image source={{ uri: `https://127.0.0.1:8000/${selectedProduct.image}` }} style={styles.productImageModal} />
                 <Text style={styles.productNameModal}>{selectedProduct.name_product}</Text>
                 <Text style={styles.productPriceModal}>
                 ${parseInt(selectedProduct.price_product).toLocaleString()}

@@ -16,11 +16,12 @@ const Checkout = ({detallesPedido, handleCrearOrden}) => {
         const supported = await Linking.canOpenURL(url);
         
         if (supported) {
-            if (detallesPedido && handleCrearOrden) {
-                handleCrearOrden(); // Llama a handleCrearOrden al presionar Checkout
-            } else {
-                console.error("No se pudo enviar el pedido.");
-            }
+            await Linking.openURL(url);
+            // if (detallesPedido && handleCrearOrden) {
+            //     handleCrearOrden(); // Llama a handleCrearOrden al presionar Checkout
+            // } else {
+            //     console.error("No se pudo enviar el pedido.");
+            // }
         } else {
             console.error("No se pudo abrir el enlace.");
         }

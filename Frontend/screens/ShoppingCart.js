@@ -13,14 +13,14 @@ const ShoppingCart = ({ route }) => {
       const [data, setData] = useState([]);
       const [cartItems, setCartItems] = useState(route.params.cartItems || []);
       const [total, setTotal] = React.useState(0);
-      const [detallesPedido, setDetallesPedido] = useState({
-        order_date: '', // Se utiliza la fecha formateada
-        total_price: '', // Precio total
-        state_order: '', // Estado inicial de la orden
-        id_profile: '', // ID del usuario actual
-        id_payment_method: '', // Método de pago por defecto
-        cartItems:''
-      });
+      // const [detallesPedido, setDetallesPedido] = useState({
+      //   order_date: '', // Se utiliza la fecha formateada
+      //   total_price: '', // Precio total
+      //   state_order: '', // Estado inicial de la orden
+      //   id_profile: '', // ID del usuario actual
+      //   id_payment_method: '', // Método de pago por defecto
+      //   cartItems:''
+      // });
 
   useEffect(() => {
     setData(cartItems); //Utiliza los datos locales del ejemplo "products.json"
@@ -59,42 +59,42 @@ const ShoppingCart = ({ route }) => {
 
 
     
-    const handleCrearOrden = async () => {
-      try {
-      // Recuperar el token guardado
-      const token = await AsyncStorage.getItem('token');
+    // const handleCrearOrden = async () => {
+    //   try {
+    //   // Recuperar el token guardado
+    //   const token = await AsyncStorage.getItem('token');
 
-      // Utilizar el token como sea necesario (ejemplo de uso)
-      const decodedToken = jwt_decode(token);
-      const userId = decodedToken.sub;
+    //   // Utilizar el token como sea necesario (ejemplo de uso)
+    //   const decodedToken = jwt_decode(token);
+    //   const userId = decodedToken.sub;
 
-      // Resto de tu código para enviar la orden con el token
-    } catch (error) {
-      console.error('Error en la solicitud POST:', error);
-      Alert.alert('Error', 'No se ha podido registrar la orden.');
-    }
+    //   // Resto de tu código para enviar la orden con el token
+    // } catch (error) {
+    //   console.error('Error en la solicitud POST:', error);
+    //   Alert.alert('Error', 'No se ha podido registrar la orden.');
+    // }
 
-      const currentDate = new Date(); // Obtiene la fecha actual
-        const formattedDate = currentDate.toISOString().split('T')[0];
+    //   const currentDate = new Date(); // Obtiene la fecha actual
+    //     const formattedDate = currentDate.toISOString().split('T')[0];
         
-        const datos = {
-        order_date: formattedDate,
-      total_price: total,
-      state_order: 'pendiente',
-      id_profile: userId,
-      id_payment_method: 'nequi',
-      cartItems: cartItems,
-    };
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/api/order/', datos);
-      console.log('Orden Guardada.', response.data);
+    //     const datos = {
+    //     order_date: formattedDate,
+    //   total_price: total,
+    //   state_order: 'pendiente',
+    //   id_profile: userId,
+    //   id_payment_method: 'nequi',
+    //   cartItems: cartItems,
+    // };
+    // try {
+    //   const response = await axios.post('http://127.0.0.1:8000/api/order/', datos);
+    //   console.log('Orden Guardada.', response.data);
   
-      } catch (error) {
-      console.error('Error en la solicitud POST:', error);
-      Alert.alert('Error', 'No se ha podido registrar la orden.');
-      }
+    //   } catch (error) {
+    //   console.error('Error en la solicitud POST:', error);
+    //   Alert.alert('Error', 'No se ha podido registrar la orden.');
+    //   }
 
-      }
+    //   }
 
       
     return (
@@ -116,7 +116,7 @@ const ShoppingCart = ({ route }) => {
         />
         <Text style={styles.listItemTextTotal}>Total: ${total.toLocaleString()}</Text>
         <Checkout 
-        detallesPedido={detallesPedido} handleCrearOrden={handleCrearOrden}
+        // detallesPedido={detallesPedido} handleCrearOrden={handleCrearOrden}
         />
       </View>
     </View>
