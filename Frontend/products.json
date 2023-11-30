@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Producto 1",
+        "price": 10.99,
+        "description": "Jordan Blancos",
+        "image": "assets/images/Hidratante_rizos.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Producto 2",
+        "price": 19.99,
+        "description": "Este es el producto 2.",
+        "image": "assets/images/Shampoo_nutritivo.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Producto 3",
+        "price": 5.99,
+        "description": "Este es el producto 3.",
+        "image": "assets/images/Tratamiento_reconstructivo.jpg"
+    }
+    ]
